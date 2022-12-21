@@ -1,0 +1,60 @@
+.nav {
+    /* background-color: #D8BFD8; */
+    /* background-color: whitesmoke; */
+    grid-area: nav;  
+    height: 75vh;  
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    /* box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px; */
+ 
+}
+
+.nav a {
+    font-size: 14px;
+}
+
+.navItem {
+    margin: 5px 0;
+    padding: 5px;
+   
+}
+
+.navItem img {
+    width: 24px;
+    display: inline-block;
+    margin-right: 5px;
+}
+.navItem:first-child img {
+    transform: scale(1.5);
+    
+}
+
+.navItem:hover {
+    border-radius: 10px;
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px; 
+    transition: .2s ease-in-out;
+}
+
+.item {
+    color: black;
+    display: flex;
+    align-items: center;
+}
+.active {
+    color:blueviolet ;
+    display: flex;
+    align-items: center;
+}
+
+.friendsList {
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navBarMenu {
+   margin-bottom: 75px;
+}
+
