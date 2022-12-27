@@ -39,7 +39,7 @@ let store = {
             ]
         }
     },
-    _callSubdcriber() {
+    _callSubscriber() {
         console.log('state changed');
     },
 
@@ -47,8 +47,8 @@ let store = {
     getState() {
         return this._state;
     },
-    callbackRerender(observer) {
-        this._callSubdcriber = observer;
+    subscribe(observer) {
+        this._callSubscriber = observer;
     },
 
 
@@ -56,7 +56,7 @@ let store = {
         this._state.profilePage = profileReducer(this._state.profilePage, action);
         this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
         this._state.navBarPage = navBarReducer(this._state.navBarPage, action);
-        this._callSubdcriber(this._state);
+        this._callSubscriber(this._state);
     }
 };
 
