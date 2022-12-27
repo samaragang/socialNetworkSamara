@@ -1,3 +1,7 @@
+import dialogsReducer from "./dialogs-reducer";
+import navBarReducer from "./navbar-reducer";
+import profileReducer from "./profile-reducer";
+
 let store = {
     _state: {
         profilePage: {
@@ -8,7 +12,7 @@ let store = {
                 { id: 4, message: 'Lrgrgrgrgr e  reha' },
                 { id: 5, message: 'Safef sha' }
             ],
-            newPostText: 'it'
+            newPostText: 'it samara'
         },
         dialogsPage: {
             dialogsData: [
@@ -25,7 +29,7 @@ let store = {
                 { id: 4, message: 'message 4' },
                 { id: 5, message: 'message 5' }
             ],
-            newMessageText: 'new Message'
+            newMessageText: ''
         },
         navBar: {
             friendsData: [
@@ -49,31 +53,11 @@ let store = {
 
 
     dispatch(action) {
-        if (action.type === 'ADD-POST') {
-            let newPost = {
-                id: 6,
-                message: this._state.profilePage.newPostText,
-                likesCount: 0
-            };
-            this._state.profilePage.myPostsData.push(newPost);
-            this._state.profilePage.newPostText = '';
-            this._callSubdcriber(this._state);
-        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
-            this._state.profilePage.newPostText = action.newText;
-            this._callSubdcriber(this._state);
-        } else if (action.type === 'ADD-MESSAGE') {
-            let newMessage = {
-                id: 6,
-                message: this._state.dialogsPage.newMessageText
-            };
-            this._state.dialogsPage.messagesData.push(newMessage);
-            this._state.dialogsPage.newMessageText = '';
-            this._callSubdcriber(this._state);
-        } else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
-            this._state.dialogsPage.newMessageText = action.newText;
-            this._callSubdcriber(this._state);
-        }
-    },
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+        this._state.navBarPage = navBarReducer(this._state.navBarPage, action);
+        this._callSubdcriber(this._state);
+    }
 };
 
 export default store;
